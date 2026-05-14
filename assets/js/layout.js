@@ -1,6 +1,6 @@
 /**
  * Shared header & footer (ek hi jagah edit karo — `assets/js/layout.js`).
- * Logo: `images/logo-lockup.png` (transparent PNG — UI par chip/box nahi).
+ * Logo: footer `logo-lockup.png` (full). Header `logo-lockup-header.png` — same brand, bulky teal slab hata di.
  * Har page: `<body data-page="...">` + `<div id="site-header"></div>` + `<div id="site-footer"></div>`
  * data-page: home | about | products | gallery | contact | product-wall | product-multi | product-floor
  */
@@ -37,15 +37,17 @@
     return idle;
   }
 
-  /* Transparent lockup — koi white/black card nahi */
-  var logoMark =
-    '<img src="images/logo-lockup.png" alt="Chetak Maxx Building Solutions" class="site-logo block h-9 w-auto max-w-[220px] object-contain object-left sm:h-10 sm:max-w-[260px]" width="260" height="80" decoding="async" />';
+  var logoHeader =
+    '<img src="images/logo-lockup-header.png" alt="Chetak Maxx Building Solutions" class="site-logo site-logo--nav block h-9 w-auto max-w-[230px] object-contain object-left sm:h-10 sm:max-w-[268px]" width="268" height="78" decoding="async" />';
+
+  var logoFooter =
+    '<img src="images/logo-lockup.png" alt="Chetak Maxx Building Solutions" class="site-logo site-logo--footer block h-9 w-auto max-w-[220px] object-contain object-left sm:h-10 sm:max-w-[260px]" width="260" height="80" decoding="async" />';
 
   var headerHtml =
     '<header class="fixed left-0 right-0 top-0 z-50 glass-nav border-b border-white/10">' +
     '<div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">' +
     '<a href="index.html" class="group flex shrink-0 items-center transition hover:opacity-90">' +
-    logoMark +
+    logoHeader +
     '</a>' +
     '<nav class="hidden items-center gap-8 lg:flex" aria-label="Main">' +
     '<a href="index.html" class="' +
@@ -93,7 +95,7 @@
     '<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">' +
     '<div class="grid gap-10 md:grid-cols-2 lg:grid-cols-4">' +
     '<div><a href="index.html" class="group inline-flex">' +
-    logoMark +
+    logoFooter +
     '</a>' +
     '<p class="mt-5 text-sm text-slate-600">Premium tile adhesives and construction chemicals for professionals who demand reliability.</p></div>' +
     '<div><p class="font-display text-sm font-bold uppercase tracking-wider text-royal">Quick Links</p>' +
