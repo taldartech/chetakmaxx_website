@@ -38,7 +38,7 @@
   }
 
   var logoHeader =
-    '<img src="images/logo-lockup-header.png" alt="Chetak Maxx Building Solutions" class="site-logo site-logo--nav block h-9 w-auto max-w-[230px] object-contain object-left sm:h-10 sm:max-w-[268px]" width="268" height="78" decoding="async" />';
+    '<img src="images/logo-lockup.png" alt="Chetak Maxx Building Solutions" class="site-logo site-logo--nav block h-9 w-auto max-w-[230px] object-contain object-left sm:h-10 sm:max-w-[268px]" width="268" height="78" decoding="async" />';
 
   var logoFooter =
     '<img src="images/logo-lockup.png" alt="Chetak Maxx Building Solutions" class="site-logo site-logo--footer block h-9 w-auto max-w-[220px] object-contain object-left sm:h-10 sm:max-w-[260px]" width="260" height="80" decoding="async" />';
