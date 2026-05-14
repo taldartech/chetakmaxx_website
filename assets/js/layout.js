@@ -11,7 +11,7 @@
 
   function navDesktop(key) {
     var active = 'text-sm font-medium text-brandcyan transition';
-    var idle = 'text-sm font-medium text-white/80 transition hover:text-white';
+    var idle = 'text-sm font-medium text-royal transition hover:text-royal';
     if (key === 'home') return page === 'home' ? active : idle;
     if (key === 'about') return page === 'about' ? active : idle;
     if (key === 'products')
@@ -25,7 +25,7 @@
 
   function navMobile(key) {
     var active = 'py-2 font-medium text-brandcyan';
-    var idle = 'py-2 font-medium text-white/90';
+    var idle = 'py-2 font-medium text-royal';
     if (key === 'home') return page === 'home' ? active : idle;
     if (key === 'about') return page === 'about' ? active : idle;
     if (key === 'products')
