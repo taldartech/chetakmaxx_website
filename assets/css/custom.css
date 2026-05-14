@@ -1,0 +1,116 @@
+:root {
+  --royal-deep: #0a1628;
+  --royal: #0f2744;
+  --cyan: #00b8db;
+  --cyan-soft: #22d3ee;
+  --gold: #c9a227;
+  --gold-light: #e8c547;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', system-ui, sans-serif;
+}
+
+.font-display {
+  font-family: 'Montserrat', 'Poppins', system-ui, sans-serif;
+}
+
+.hero-gradient {
+  background: linear-gradient(
+    145deg,
+    #050d18 0%,
+    #0a1628 35%,
+    #0f2744 55%,
+    #123a5c 78%,
+    #0c2842 100%
+  );
+}
+
+.hero-mesh::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 40%, rgba(0, 184, 219, 0.12), transparent),
+    radial-gradient(ellipse 60% 40% at 80% 60%, rgba(201, 162, 39, 0.08), transparent);
+  pointer-events: none;
+}
+
+.bag-float {
+  animation: bagFloat 6s ease-in-out infinite;
+}
+
+.bag-float-delay-1 {
+  animation-delay: -2s;
+}
+
+.bag-float-delay-2 {
+  animation-delay: -4s;
+}
+
+@keyframes bagFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-1deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(1deg);
+  }
+}
+
+.bag-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.bag-shine::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 40%;
+  height: 200%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.15),
+    transparent
+  );
+  transform: rotate(25deg);
+  animation: shine 8s ease-in-out infinite;
+}
+
+@keyframes shine {
+  0%,
+  100% {
+    left: -60%;
+  }
+  50% {
+    left: 120%;
+  }
+}
+
+.btn-gold-glow {
+  box-shadow:
+    0 0 0 1px rgba(201, 162, 39, 0.35),
+    0 4px 24px rgba(0, 184, 219, 0.2);
+}
+
+.glass-nav {
+  background: rgba(10, 22, 40, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Logo PNG transparent — dark nav par halka glow, footer par clean */
+#site-header .site-logo {
+  filter: drop-shadow(0 1px 2px rgb(0 0 0 / 0.45)) drop-shadow(0 0 12px rgb(0 184 219 / 0.12));
+}
+
+#site-footer .site-logo {
+  filter: drop-shadow(0 1px 1px rgb(15 39 68 / 0.08));
+}
