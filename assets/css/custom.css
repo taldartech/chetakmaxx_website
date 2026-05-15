@@ -9,10 +9,18 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
   font-family: 'Poppins', system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
 }
 
 .font-display {
@@ -113,4 +121,110 @@ body {
 
 #site-footer .site-logo--footer {
   filter: drop-shadow(0 1px 1px rgb(15 39 68 / 0.08));
+}
+
+/* Mobile nav: injected via layout.js — native [hidden] + CSS breakpoints (Tailwind `lg:` not required on burger). */
+@media (min-width: 1024px) {
+  #site-header #mobile-menu-btn,
+  #site-header #mobile-nav,
+  #site-header .cmx-nav-mobile-only {
+    display: none !important;
+  }
+}
+
+@media (max-width: 1023.98px) {
+  #site-header header {
+    overflow: visible;
+  }
+
+  #site-header #mobile-menu-btn {
+    display: inline-flex !important;
+    flex-shrink: 0 !important;
+    visibility: visible !important;
+    min-width: 2.5rem;
+    min-height: 2.5rem;
+    align-self: center;
+  }
+}
+
+/* Desktop nav lives in layout.js — Play CDN may omit `hidden` / `lg:flex` on pages
+   that never use those utilities in static HTML (e.g. about, gallery). */
+#site-header > header nav[aria-label='Main'] {
+  display: none;
+  align-items: center;
+  gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+  #site-header > header nav[aria-label='Main'] {
+    display: flex;
+  }
+}
+
+/* Footer tagline: reserve space so fixed UI (e.g. back-to-top) never covers Hindi line on small screens */
+@media (max-width: 639.98px) {
+  #site-footer .cmx-footer-tagline {
+    padding-right: 3.75rem;
+    max-width: 100%;
+  }
+}
+
+/* Back to top — brand gold + royal (matches CTAs), lifts when footer is near viewport */
+.cmx-back-to-top {
+  position: fixed;
+  z-index: 40;
+  right: max(1rem, env(safe-area-inset-right, 0px));
+  bottom: max(1rem, env(safe-area-inset-bottom, 0px));
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 1px solid rgba(15, 39, 68, 0.22);
+  border-radius: 0.5rem;
+  background: linear-gradient(180deg, var(--gold-light) 0%, var(--gold) 100%);
+  color: var(--royal-deep);
+  cursor: pointer;
+  box-shadow:
+    0 1px 2px rgb(15 39 68 / 0.12),
+    0 8px 24px rgb(10 22 40 / 0.18);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition:
+    opacity 0.2s ease,
+    visibility 0.2s ease,
+    transform 0.2s ease,
+    bottom 0.25s ease,
+    box-shadow 0.2s ease;
+}
+
+.cmx-back-to-top.cmx-back-to-top--visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.cmx-back-to-top:hover {
+  box-shadow:
+    0 0 0 1px rgba(0, 184, 219, 0.35),
+    0 10px 28px rgb(10 22 40 / 0.22);
+}
+
+.cmx-back-to-top:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 2px;
+}
+
+.cmx-back-to-top.cmx-back-to-top--raised {
+  bottom: max(6.5rem, calc(env(safe-area-inset-bottom, 0px) + 5.5rem));
+}
+
+@media (min-width: 640px) {
+  .cmx-back-to-top.cmx-back-to-top--raised {
+    bottom: max(5.25rem, calc(env(safe-area-inset-bottom, 0px) + 4.25rem));
+  }
 }

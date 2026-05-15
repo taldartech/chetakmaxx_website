@@ -11,7 +11,7 @@
 
   function navDesktop(key) {
     var active = 'text-sm font-medium text-brandcyan transition';
-    var idle = 'text-sm font-medium text-royal transition hover:text-royal';
+    var idle = 'text-sm font-medium text-royal transition hover:text-brandcyan';
     if (key === 'home') return page === 'home' ? active : idle;
     if (key === 'about') return page === 'about' ? active : idle;
     if (key === 'products')
@@ -25,7 +25,7 @@
 
   function navMobile(key) {
     var active = 'py-2 font-medium text-brandcyan';
-    var idle = 'py-2 font-medium text-royal';
+    var idle = 'py-2 font-medium text-white/95 transition hover:text-brandcyan';
     if (key === 'home') return page === 'home' ? active : idle;
     if (key === 'about') return page === 'about' ? active : idle;
     if (key === 'products')
@@ -67,10 +67,10 @@
     '">Contact</a>' +
     '<a href="contact.html#dealer" class="rounded-full bg-brandgold px-5 py-2 text-sm font-semibold text-royal-deep shadow-md transition hover:bg-brandgold-light">Trade Enquiry</a>' +
     '</nav>' +
-    '<button type="button" id="mobile-menu-btn" class="inline-flex items-center justify-center rounded-lg border border-white/20 p-2 text-white lg:hidden" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">' +
+    '<button type="button" id="mobile-menu-btn" class="inline-flex items-center justify-center rounded-lg border border-slate-400 bg-white/80 p-2 text-royal shadow-sm cmx-nav-mobile-only" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">' +
     '<svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>' +
     '</button></div>' +
-    '<div id="mobile-nav" class="hidden border-t border-white/10 bg-royal-deep/95 px-4 py-4 lg:hidden">' +
+    '<div id="mobile-nav" hidden class="border-t border-white/10 bg-royal-deep/95 px-4 py-4 cmx-nav-mobile-only">' +
     '<div class="flex flex-col gap-3">' +
     '<a href="index.html" class="' +
     navMobile('home') +
@@ -116,13 +116,26 @@
     '<p class="mt-1 text-sm text-slate-600">Quality management certified operations.</p></div></div>' +
     '<div class="mt-12 flex flex-col items-center justify-between gap-4 border-t border-slate-200 pt-8 text-center text-sm text-slate-500 sm:flex-row sm:text-left">' +
     '<p>© <span id="y"></span> Chetak Maxx Building Solutions. All rights reserved.</p>' +
-    '<p class="font-medium text-slate-400">नाम नहीं, Quality में नंबर 1</p></div></div></footer>';
+    '<p class="font-medium text-slate-400 cmx-footer-tagline">नाम नहीं, Quality में नंबर 1</p></div></div></footer>';
 
-  var h = document.getElementById('site-header');
-  var f = document.getElementById('site-footer');
-  if (h) h.innerHTML = headerHtml;
-  if (f) f.innerHTML = footerHtml;
+  function injectChrome() {
+    var h = document.getElementById('site-header');
+    var f = document.getElementById('site-footer');
+    if (h && !h.getAttribute('data-cmx-layout')) {
+      h.innerHTML = headerHtml;
+      h.setAttribute('data-cmx-layout', '1');
+    }
+    if (f) {
+      if (!f.getAttribute('data-cmx-layout')) {
+        f.innerHTML = footerHtml;
+        f.setAttribute('data-cmx-layout', '1');
+        var y = document.getElementById('y');
+        if (y) y.textContent = new Date().getFullYear();
+      }
+      return;
+    }
+    document.addEventListener('DOMContentLoaded', injectChrome, { once: true });
+  }
 
-  var y = document.getElementById('y');
-  if (y) y.textContent = new Date().getFullYear();
+  injectChrome();
 })();

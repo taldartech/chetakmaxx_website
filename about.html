@@ -8,9 +8,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
     <script>
-      tailwind.config = {
+      (function () {
+        try {
+          if (typeof tailwind === 'undefined') return;
+          tailwind.config = {
         theme: {
           extend: {
             colors: {
@@ -26,12 +29,15 @@
           },
         },
       };
+        } catch (e) {}
+      })();
     </script>
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/custom.css" />
   </head>
   <body data-page="about" class="bg-slate-50 text-slate-800 antialiased">
     <div id="site-header"></div>
+    <script src="assets/js/layout.js"></script>
 
     <main>
       <section class="hero-gradient hero-mesh relative overflow-hidden pt-32 pb-20 sm:pt-36 sm:pb-28">
@@ -49,7 +55,7 @@
       <section class="py-20 sm:py-28">
         <div class="mx-auto grid max-w-7xl gap-16 px-4 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8">
           <div data-aos="fade-right">
-            <img src="images/d9e87e3a-265a-457d-bef1-da1aa2bd1762.jpeg" alt="Chetak Maxx on site" class="rounded-2xl shadow-premium ring-1 ring-slate-200/80" width="900" height="675" loading="lazy" />
+            <img src="images/d9e87e3a-265a-457d-bef1-da1aa2bd1762.jpeg" alt="Chetak Maxx on site" class="w-full max-w-full rounded-2xl shadow-premium ring-1 ring-slate-200/80" width="900" height="675" loading="lazy" />
           </div>
           <div data-aos="fade-left">
             <h2 class="font-display text-3xl font-bold text-royal sm:text-4xl">Our story</h2>
@@ -111,7 +117,6 @@
     </main>
 
     <div id="site-footer"></div>
-    <script src="assets/js/layout.js"></script>
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script src="assets/js/main.js"></script>
   </body>

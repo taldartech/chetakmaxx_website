@@ -8,9 +8,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
     <script>
-      tailwind.config = {
+      (function () {
+        try {
+          if (typeof tailwind === 'undefined') return;
+          tailwind.config = {
         theme: {
           extend: {
             colors: {
@@ -26,12 +29,15 @@
           },
         },
       };
+        } catch (e) {}
+      })();
     </script>
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/custom.css" />
   </head>
   <body data-page="products" class="bg-slate-50 text-slate-800 antialiased">
     <div id="site-header"></div>
+    <script src="assets/js/layout.js"></script>
 
     <main>
       <section class="hero-gradient hero-mesh relative overflow-hidden pt-32 pb-16 sm:pt-36 sm:pb-20">
@@ -119,7 +125,6 @@
     </main>
 
     <div id="site-footer"></div>
-    <script src="assets/js/layout.js"></script>
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script src="assets/js/main.js"></script>
   </body>
