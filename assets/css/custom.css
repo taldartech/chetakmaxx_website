@@ -48,6 +48,117 @@ video {
   pointer-events: none;
 }
 
+/* Home page — home.png */
+.hero-home {
+  position: relative;
+  background-color: #f4f7fa;
+}
+
+.hero-home__bg {
+  line-height: 0;
+}
+
+.hero-home__img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.hero-home__content {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Mobile: banner image on top, text below — no gap, no overlap */
+@media (max-width: 1023px) {
+  .hero-home {
+    display: flex;
+    flex-direction: column;
+    padding-top: 4.25rem;
+    overflow: visible;
+  }
+
+  .hero-home__bg {
+    flex-shrink: 0;
+  }
+
+  .hero-home__content {
+    flex-shrink: 0;
+    padding: 1.25rem 1rem 2rem;
+  }
+
+  .hero-home__panel {
+    max-width: 22rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-home h1,
+  .hero-home p {
+    text-shadow: none;
+  }
+}
+
+/* Desktop: full-screen overlay */
+@media (min-width: 1024px) {
+  .hero-home {
+    min-height: 100svh;
+    min-height: 100dvh;
+    overflow: hidden;
+    background-color: #e8eef4;
+  }
+
+  .hero-home__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  .hero-home__img {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    max-width: none;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+
+  .hero-home::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+      105deg,
+      rgba(255, 255, 255, 0.5) 0%,
+      rgba(255, 255, 255, 0.28) 22%,
+      rgba(255, 255, 255, 0.08) 40%,
+      transparent 55%
+    );
+    pointer-events: none;
+  }
+
+  .hero-home__content {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    padding: 7rem 2rem 6rem;
+  }
+
+  .hero-home__panel {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .hero-home h1,
+  .hero-home p {
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.85), 0 0 20px rgba(255, 255, 255, 0.4);
+  }
+}
+
 .bag-float {
   animation: bagFloat 6s ease-in-out infinite;
 }

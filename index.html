@@ -55,85 +55,40 @@
     <script src="assets/js/layout.js"></script>
 
     <main id="main">
-      <!-- Hero -->
-      <section class="hero-gradient hero-mesh relative min-h-[100svh] overflow-hidden pt-24 pb-16 sm:pt-28 lg:pb-24">
-        <div
-          class="pointer-events-none absolute -right-20 top-1/4 h-96 w-96 rounded-full bg-brandcyan/10 blur-3xl"
-        ></div>
-        <div
-          class="pointer-events-none absolute -left-20 bottom-0 h-80 w-80 rounded-full bg-brandgold/5 blur-3xl"
-        ></div>
-
-        <div class="relative mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:gap-8 lg:px-8">
-          <div class="z-10 text-center lg:text-left" data-aos="fade-up">
-            <p
-              class="mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-brandcyan sm:text-sm"
-            >
-              Construction Chemicals & Tile Adhesive
-            </p>
-            <h1 class="font-display text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
+      <!-- Hero — home.png banner -->
+      <section class="hero-home">
+        <div class="hero-home__bg" aria-hidden="true">
+          <img
+            src="images/home.png"
+            alt="Chetak Maxx tile adhesive products"
+            class="hero-home__img"
+            width="1536"
+            height="1024"
+            fetchpriority="high"
+          />
+        </div>
+        <div class="hero-home__content w-full max-w-7xl lg:flex">
+          <div class="hero-home__panel w-full text-center lg:max-w-lg lg:text-left" data-aos="fade-up">
+            <h1 class="font-display text-3xl font-extrabold leading-tight tracking-tight text-royal sm:text-4xl lg:text-6xl">
               Build with
-              <span class="bg-gradient-to-r from-brandcyan to-brandcyan-soft bg-clip-text text-transparent"
-                >Confidence</span
-              >
+              <span class="text-brandcyan">Confidence</span>
             </h1>
-            <p
-              class="mx-auto mt-6 max-w-xl text-lg font-medium leading-relaxed text-white/85 sm:text-xl lg:mx-0"
-              lang="hi"
-            >
+            <p class="mx-auto mt-3 text-base font-medium text-slate-700 sm:text-lg lg:mt-4 lg:text-xl lg:mx-0" lang="hi">
               नाम नहीं, <span class="text-brandgold">QUALITY</span> में नंबर 1 चुनिए 💪
             </p>
-            <p class="mx-auto mt-3 max-w-lg text-sm text-white/60 sm:text-base lg:mx-0">
-              Polymer-modified adhesives engineered for Indian sites — strong bond, waterproof performance, lasting
-              results.
-            </p>
-            <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start">
+            <div class="mt-6 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:justify-center lg:mt-8 lg:justify-start">
               <a
                 href="contact.html#dealer"
-                class="btn-gold-glow inline-flex w-full items-center justify-center rounded-full bg-brandgold px-8 py-4 font-display text-sm font-bold uppercase tracking-wide text-royal-deep shadow-premium transition hover:scale-[1.02] hover:bg-brandgold-light sm:w-auto"
+                class="btn-gold-glow inline-flex w-full items-center justify-center rounded-full bg-brandgold px-6 py-3 font-display text-xs font-bold uppercase tracking-wide text-royal-deep shadow-premium transition hover:scale-[1.02] hover:bg-brandgold-light sm:text-sm sm:px-7 sm:py-3.5 lg:w-auto"
                 >Trade Enquiry</a
               >
               <a
                 href="products.html"
-                class="inline-flex w-full items-center justify-center rounded-full border-2 border-white/25 bg-white/5 px-8 py-4 font-display text-sm font-bold uppercase tracking-wide text-white backdrop-blur-sm transition hover:border-brandcyan hover:bg-white/10 sm:w-auto"
+                class="inline-flex w-full items-center justify-center rounded-full border border-royal/30 bg-white px-6 py-3 font-display text-xs font-bold uppercase tracking-wide text-royal shadow-sm transition hover:border-brandcyan sm:text-sm sm:px-7 sm:py-3.5 lg:border-royal/40 lg:bg-royal/5 lg:shadow-none lg:w-auto"
                 >View Products</a
               >
             </div>
-            <div class="mt-12 flex flex-wrap items-center justify-center gap-8 text-white/40 lg:justify-start">
-              <div class="text-center">
-                <p class="font-display text-2xl font-bold text-white">ISO</p>
-                <p class="text-xs uppercase tracking-wider">9001:2015</p>
-              </div>
-              <div class="h-10 w-px bg-white/20"></div>
-              <div class="text-center">
-                <p class="font-display text-2xl font-bold text-brandcyan">Premium</p>
-                <p class="text-xs uppercase tracking-wider">Grade Adhesive</p>
-              </div>
-            </div>
           </div>
-
-          <!-- Product packs — local transparent PNGs -->
-          <div class="relative flex min-h-[320px] items-center justify-center lg:min-h-[480px]" data-aos="fade-left">
-            <div class="relative flex w-full max-w-lg items-end justify-center gap-1 sm:gap-3 lg:max-w-none">
-              <a href="product-wall-floor.html" class="bag-float bag-shine bag-float-delay-2 relative z-10 w-[30%] max-w-[150px] drop-shadow-[0_25px_50px_rgba(0,0,0,0.45)] sm:max-w-[180px]">
-                <img src="images/Wall-Floor-Front-Trans.png" alt="Chetak Maxx Wall and Floor tile adhesive" class="h-auto w-full object-contain" width="400" height="520" />
-              </a>
-              <a href="product-multipurpose.html" class="bag-float bag-shine relative z-20 -mb-6 w-[36%] max-w-[190px] drop-shadow-[0_30px_60px_rgba(0,0,0,0.5)] sm:max-w-[220px]">
-                <img src="images/Multipurpose-Front-Trans.png" alt="Chetak Maxx Multipurpose tile adhesive" class="h-auto w-full object-contain" width="400" height="520" />
-              </a>
-              <a href="product-floor.html" class="bag-float bag-shine bag-float-delay-1 relative z-10 w-[30%] max-w-[150px] drop-shadow-[0_25px_50px_rgba(0,0,0,0.45)] sm:max-w-[180px]">
-                <img src="images/Floor-front-trans.png" alt="Chetak Maxx Floor tile adhesive" class="h-auto w-full object-contain" width="400" height="520" />
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="absolute bottom-6 left-1/2 hidden -translate-x-1/2 lg:block" data-aos="fade-up" data-aos-delay="400">
-          <a href="#products" class="flex flex-col items-center gap-2 text-white/50 transition hover:text-brandcyan">
-            <span class="text-xs uppercase tracking-widest">Scroll</span>
-            <span class="h-10 w-6 rounded-full border-2 border-current p-1">
-              <span class="mx-auto block h-2 w-1 animate-bounce rounded-full bg-brandcyan"></span>
-            </span>
-          </a>
         </div>
       </section>
 
