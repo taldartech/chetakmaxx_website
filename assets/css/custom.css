@@ -220,14 +220,46 @@ video {
 }
 
 .glass-nav {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.98);
 }
 
-/* Header: halka depth (bulky glow nahi). Footer: tumhara clean look */
+/* Nav logo: no filter — drop-shadow + backdrop-blur made it look dull */
 #site-header .site-logo--nav {
-  filter: drop-shadow(0 1px 2px rgb(0 0 0 / 0.4));
+  filter: none;
+}
+
+/* Dealer locator strip — above footer (layout.js) */
+.dealer-care-strip {
+  background: var(--royal);
+  padding: 0.875rem 1rem;
+  text-align: center;
+}
+
+.dealer-care-strip__text {
+  margin: 0;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #fff;
+}
+
+@media (min-width: 640px) {
+  .dealer-care-strip__text {
+    font-size: 1rem;
+  }
+}
+
+.dealer-care-strip__number {
+  font-weight: 700;
+}
+
+.dealer-care-strip__number a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.dealer-care-strip__number a:hover {
+  color: var(--cyan-soft);
 }
 
 #site-footer .site-logo--footer {
@@ -272,20 +304,59 @@ video {
   }
 }
 
-/* Footer tagline: reserve space so fixed UI (e.g. back-to-top) never covers Hindi line on small screens */
-@media (max-width: 639.98px) {
-  #site-footer .cmx-footer-tagline {
-    padding-right: 3.75rem;
-    max-width: 100%;
-  }
-}
-
-/* Back to top — brand gold + royal (matches CTAs), lifts when footer is near viewport */
-.cmx-back-to-top {
+/* Floating WhatsApp + back to top (bottom-right on every page via main.js) */
+.cmx-floating-actions {
   position: fixed;
   z-index: 40;
   right: max(1rem, env(safe-area-inset-right, 0px));
   bottom: max(1rem, env(safe-area-inset-bottom, 0px));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  transition: bottom 0.25s ease;
+}
+
+.cmx-floating-actions.cmx-floating-actions--raised {
+  bottom: max(6.5rem, calc(env(safe-area-inset-bottom, 0px) + 5.5rem));
+}
+
+@media (min-width: 640px) {
+  .cmx-floating-actions.cmx-floating-actions--raised {
+    bottom: max(5.25rem, calc(env(safe-area-inset-bottom, 0px) + 4.25rem));
+  }
+}
+
+.cmx-whatsapp-float {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 0.5rem;
+  background: #25d366;
+  color: #fff;
+  box-shadow:
+    0 1px 2px rgb(15 39 68 / 0.12),
+    0 8px 24px rgb(10 22 40 / 0.18);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.cmx-whatsapp-float:hover {
+  color: #fff;
+  transform: scale(1.04);
+  box-shadow:
+    0 0 0 1px rgba(37, 211, 102, 0.45),
+    0 10px 28px rgb(10 22 40 / 0.22);
+}
+
+.cmx-whatsapp-float:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 2px;
+}
+
+/* Back to top — brand gold + royal (matches CTAs) */
+.cmx-back-to-top {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -328,14 +399,4 @@ video {
 .cmx-back-to-top:focus-visible {
   outline: 2px solid var(--cyan);
   outline-offset: 2px;
-}
-
-.cmx-back-to-top.cmx-back-to-top--raised {
-  bottom: max(6.5rem, calc(env(safe-area-inset-bottom, 0px) + 5.5rem));
-}
-
-@media (min-width: 640px) {
-  .cmx-back-to-top.cmx-back-to-top--raised {
-    bottom: max(5.25rem, calc(env(safe-area-inset-bottom, 0px) + 4.25rem));
-  }
 }
