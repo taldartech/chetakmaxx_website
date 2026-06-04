@@ -400,3 +400,38 @@ video {
   outline: 2px solid var(--cyan);
   outline-offset: 2px;
 }
+
+/* Product technical data sheet */
+.cmx-tds-table {
+  width: 100%;
+  font-size: 0.875rem;
+  text-align: left;
+}
+
+.cmx-tds-table th,
+.cmx-tds-table td {
+  padding: 0.625rem 0.75rem;
+  vertical-align: top;
+  border-bottom: 1px solid rgb(226 232 240);
+}
+
+.cmx-tds-table thead th {
+  background: rgb(248 250 252);
+  font-weight: 600;
+  color: var(--royal);
+}
+
+.cmx-tds-table tbody tr:nth-child(even) td {
+  background: rgb(248 250 252 / 0.6);
+}
+
+@media (max-width: 639px) {
+  .cmx-tds-table {
+    font-size: 0.8125rem;
+  }
+
+  .cmx-tds-table th,
+  .cmx-tds-table td {
+    padding: 0.5rem;
+  }
+}
