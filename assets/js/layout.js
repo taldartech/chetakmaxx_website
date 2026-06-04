@@ -1,6 +1,6 @@
 /**
  * Shared header & footer (ek hi jagah edit karo — `assets/js/layout.js`).
- * Logo: footer `logo-lockup.png` (full). Header `logo-lockup-header.png` — same brand, bulky teal slab hata di.
+ * Logo: `logo-lockup.png` in header and footer (same asset, same sizing).
  * Har page: `<body data-page="...">` + `<div id="site-header"></div>` + `<div id="site-footer"></div>`
  * data-page: home | about | products | gallery | contact | product-wall | product-multi | product-floor
  */
@@ -38,7 +38,7 @@
   }
 
   var logoHeader =
-    '<img src="images/logo-lockup-header.png" alt="Chetak Maxx Building Solutions" class="site-logo site-logo--nav block h-9 w-auto max-w-[230px] object-contain object-left sm:h-10 sm:max-w-[268px]" width="1071" height="196" decoding="sync" fetchpriority="high" />';
+    '<img src="images/logo-lockup.png" alt="Chetak Maxx Building Solutions" class="site-logo site-logo--nav block h-9 w-auto max-w-[220px] object-contain object-left sm:h-10 sm:max-w-[260px]" width="260" height="80" decoding="sync" fetchpriority="high" />';
 
   var logoFooter =
     '<img src="images/logo-lockup.png" alt="Chetak Maxx Building Solutions" class="site-logo site-logo--footer block h-9 w-auto max-w-[220px] object-contain object-left sm:h-10 sm:max-w-[260px]" width="260" height="80" decoding="async" />';

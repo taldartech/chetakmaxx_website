@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Contact Chetak Maxx — phone, email, WhatsApp, and dealer enquiry form." />
+    <meta name="description" content="Contact Chetak Maxx — corporate office in Udaipur, phone, email, WhatsApp, and dealer enquiry form." />
     <title>Contact Us | Chetak Maxx Building Solutions</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -67,6 +67,17 @@
                   <p class="text-xs font-bold uppercase tracking-widest text-brandgold">Website</p>
                   <p class="mt-1 text-lg font-semibold">www.chetakmaxx.com</p>
                 </li>
+                <li>
+                  <p class="text-xs font-bold uppercase tracking-widest text-brandgold">Corporate office</p>
+                  <address class="mt-1 not-italic text-sm leading-relaxed text-white/90">
+                    <a
+                      href="https://www.google.com/maps/search/?api=1&amp;query=B-801+Sanwaliya+Dham+Debari+Udaipur+Rajasthan+313024"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="font-semibold transition hover:text-brandcyan"
+                    >B-801, Sanwaliya Dham, Debari,<br />Udaipur, Rajasthan — 313024</a>
+                  </address>
+                </li>
               </ul>
               <a
                 href="https://wa.me/917424979752"
@@ -83,31 +94,33 @@
           <div id="dealer" class="lg:col-span-3 scroll-mt-28" data-aos="fade-left">
             <div class="rounded-2xl border border-slate-200 bg-white p-8 shadow-card sm:p-10">
               <h2 class="font-display text-2xl font-bold text-royal">Dealer enquiry form</h2>
-              <p class="mt-2 text-sm text-slate-600">Trade partners: tell us about your business and location. We respond within 1–2 working days.</p>
+              
 
               <div id="form-success" class="mt-6 hidden rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-medium text-emerald-800" role="status">
-                Thank you — your enquiry has been recorded. Our team will contact you shortly.
+                Gmail should be open with your enquiry. Please click <strong>Send</strong> in Gmail to deliver it to our team.
               </div>
+              <div id="form-error" class="mt-6 hidden rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium text-red-800" role="alert"></div>
 
               <form id="dealer-form" class="mt-8 space-y-5" novalidate>
                 <div class="grid gap-5 sm:grid-cols-2">
                   <div>
                     <label for="name" class="block text-sm font-semibold text-royal">Full name</label>
-                    <input id="name" name="name" type="text" required class="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none ring-brandcyan/0 transition focus:border-brandcyan focus:bg-white focus:ring-4 focus:ring-brandcyan/20" placeholder="Your name" />
+                    <input id="name" name="name" type="text" class="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none ring-brandcyan/0 transition focus:border-brandcyan focus:bg-white focus:ring-4 focus:ring-brandcyan/20" placeholder="Your name" />
                   </div>
                   <div>
                     <label for="company" class="block text-sm font-semibold text-royal">Company / firm</label>
-                    <input id="company" name="company" type="text" required class="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none transition focus:border-brandcyan focus:bg-white focus:ring-4 focus:ring-brandcyan/20" placeholder="Business name" />
+                    <input id="company" name="company" type="text" class="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none transition focus:border-brandcyan focus:bg-white focus:ring-4 focus:ring-brandcyan/20" placeholder="Business name" />
                   </div>
                 </div>
                 <div class="grid gap-5 sm:grid-cols-2">
                   <div>
                     <label for="phone" class="block text-sm font-semibold text-royal">Phone</label>
-                    <input id="phone" name="phone" type="tel" required class="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none transition focus:border-brandcyan focus:bg-white focus:ring-4 focus:ring-brandcyan/20" placeholder="+91 …" />
+                    <input id="phone" name="phone" type="tel" class="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none transition focus:border-brandcyan focus:bg-white focus:ring-4 focus:ring-brandcyan/20" placeholder="+91 …" />
                   </div>
                   <div>
                     <label for="email" class="block text-sm font-semibold text-royal">Email</label>
-                    <input id="email" name="email" type="email" required class="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none transition focus:border-brandcyan focus:bg-white focus:ring-4 focus:ring-brandcyan/20" placeholder="you@example.com" />
+                    <input id="email" name="email" type="email" required autocomplete="email" class="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none transition focus:border-brandcyan focus:bg-white focus:ring-4 focus:ring-brandcyan/20" placeholder="you@example.com" aria-describedby="email-error" />
+                    <p id="email-error" class="mt-1 hidden text-sm font-medium text-red-600" role="alert"></p>
                   </div>
                 </div>
                 <div>

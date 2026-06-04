@@ -50,15 +50,116 @@
     });
   });
 
+  var DEALER_FORM_EMAIL = 'Chetakpaintsindia@gmail.com';
+  var DEALER_FORM_SUBJECT = 'Chetak Maxx — Dealer enquiry';
+
+  function buildDealerGmailUrl(fields) {
+    var body = [
+      'Dealer enquiry — Chetak Maxx website',
+      '',
+      'Full name: ' + (fields.name || '—'),
+      'Company / firm: ' + (fields.company || '—'),
+      'Phone: ' + (fields.phone || '—'),
+      'Email: ' + (fields.email || '—'),
+      'City / state: ' + (fields.city || '—'),
+      '',
+      'Message:',
+      fields.message || '—',
+    ].join('\n');
+
+    return (
+      'https://mail.google.com/mail/?view=cm&fs=1' +
+      '&to=' +
+      encodeURIComponent(DEALER_FORM_EMAIL) +
+      '&su=' +
+      encodeURIComponent(DEALER_FORM_SUBJECT) +
+      '&body=' +
+      encodeURIComponent(body)
+    );
+  }
+
+  function isValidDealerEmail(value) {
+    var trimmed = String(value || '').trim();
+    if (!trimmed) return false;
+    return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i.test(trimmed);
+  }
+
+  function setEmailFieldError(input, errorEl, message) {
+    if (!input || !errorEl) return;
+    if (message) {
+      input.setAttribute('aria-invalid', 'true');
+      input.classList.add('border-red-400', 'bg-red-50');
+      input.classList.remove('border-slate-200', 'bg-slate-50');
+      errorEl.textContent = message;
+      errorEl.classList.remove('hidden');
+    } else {
+      input.removeAttribute('aria-invalid');
+      input.classList.remove('border-red-400', 'bg-red-50');
+      input.classList.add('border-slate-200', 'bg-slate-50');
+      errorEl.textContent = '';
+      errorEl.classList.add('hidden');
+    }
+  }
+
   var dealerForm = document.getElementById('dealer-form');
   if (dealerForm) {
+    var emailInput = document.getElementById('email');
+    var emailError = document.getElementById('email-error');
+    var formSuccess = document.getElementById('form-success');
+    var formError = document.getElementById('form-error');
+    var submitBtn = dealerForm.querySelector('button[type="submit"]');
+
+    if (emailInput) {
+      emailInput.addEventListener('input', function () {
+        if (isValidDealerEmail(emailInput.value)) {
+          setEmailFieldError(emailInput, emailError, '');
+        }
+      });
+    }
+
     dealerForm.addEventListener('submit', function (e) {
       e.preventDefault();
-      var msg = document.getElementById('form-success');
-      if (msg) {
-        msg.classList.remove('hidden');
-        dealerForm.reset();
-        msg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      if (formSuccess) formSuccess.classList.add('hidden');
+      if (formError) {
+        formError.textContent = '';
+        formError.classList.add('hidden');
+      }
+
+      var emailValue = emailInput ? emailInput.value.trim() : '';
+      if (!isValidDealerEmail(emailValue)) {
+        setEmailFieldError(
+          emailInput,
+          emailError,
+          emailValue ? 'Please enter a valid email address.' : 'Email is required.'
+        );
+        emailInput && emailInput.focus();
+        return;
+      }
+      setEmailFieldError(emailInput, emailError, '');
+
+      var fields = {
+        name: ((dealerForm.elements.namedItem('name') || {}).value || '').trim(),
+        company: ((dealerForm.elements.namedItem('company') || {}).value || '').trim(),
+        phone: ((dealerForm.elements.namedItem('phone') || {}).value || '').trim(),
+        email: emailValue,
+        city: ((dealerForm.elements.namedItem('city') || {}).value || '').trim(),
+        message: ((dealerForm.elements.namedItem('message') || {}).value || '').trim(),
+      };
+
+      var gmailWindow = window.open(buildDealerGmailUrl(fields), '_blank', 'noopener,noreferrer');
+      if (!gmailWindow) {
+        if (formError) {
+          formError.textContent =
+            'Please allow pop-ups for this site, or email us directly at ' + DEALER_FORM_EMAIL + '.';
+          formError.classList.remove('hidden');
+          formError.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+        return;
+      }
+
+      if (formSuccess) {
+        formSuccess.classList.remove('hidden');
+        formSuccess.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }
     });
   }

@@ -223,9 +223,9 @@ video {
   background: rgba(255, 255, 255, 0.98);
 }
 
-/* Nav logo: no filter — drop-shadow + backdrop-blur made it look dull */
+/* Nav logo — match footer lockup */
 #site-header .site-logo--nav {
-  filter: none;
+  filter: drop-shadow(0 1px 1px rgb(15 39 68 / 0.08));
 }
 
 /* Dealer locator strip — above footer (layout.js) */
