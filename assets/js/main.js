@@ -53,8 +53,8 @@
   var DEALER_FORM_EMAIL = 'Chetakpaintsindia@gmail.com';
   var DEALER_FORM_SUBJECT = 'Chetak Maxx — Dealer enquiry';
 
-  function buildDealerGmailUrl(fields) {
-    var body = [
+  function buildDealerEnquiryMessage(fields) {
+    return [
       'Dealer enquiry — Chetak Maxx website',
       '',
       'Full name: ' + (fields.name || '—'),
@@ -66,15 +66,16 @@
       'Message:',
       fields.message || '—',
     ].join('\n');
+  }
 
+  function buildDealerMailtoUrl(fields) {
     return (
-      'https://mail.google.com/mail/?view=cm&fs=1' +
-      '&to=' +
-      encodeURIComponent(DEALER_FORM_EMAIL) +
-      '&su=' +
+      'mailto:' +
+      DEALER_FORM_EMAIL +
+      '?subject=' +
       encodeURIComponent(DEALER_FORM_SUBJECT) +
       '&body=' +
-      encodeURIComponent(body)
+      encodeURIComponent(buildDealerEnquiryMessage(fields))
     );
   }
 
@@ -146,16 +147,7 @@
         message: ((dealerForm.elements.namedItem('message') || {}).value || '').trim(),
       };
 
-      var gmailWindow = window.open(buildDealerGmailUrl(fields), '_blank', 'noopener,noreferrer');
-      if (!gmailWindow) {
-        if (formError) {
-          formError.textContent =
-            'Please allow pop-ups for this site, or email us directly at ' + DEALER_FORM_EMAIL + '.';
-          formError.classList.remove('hidden');
-          formError.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }
-        return;
-      }
+      window.location.href = buildDealerMailtoUrl(fields);
 
       if (formSuccess) {
         formSuccess.classList.remove('hidden');
