@@ -38,10 +38,12 @@
   }
 
   var logoHeader =
-    '<img src="images/logo-lockup.png" alt="Chetak Maxx Building Solutions" class="site-logo site-logo--nav block h-9 w-auto max-w-[220px] object-contain object-left sm:h-10 sm:max-w-[260px]" width="260" height="80" decoding="sync" fetchpriority="high" />';
+    '<picture><source srcset="images/logo-lockup.webp" type="image/webp" />' +
+    '<img src="images/logo-lockup.png" alt="Chetak Maxx Building Solutions" class="site-logo site-logo--nav block h-9 w-auto max-w-[220px] object-contain object-left sm:h-10 sm:max-w-[260px]" width="260" height="80" decoding="sync" fetchpriority="high" /></picture>';
 
   var logoFooter =
-    '<img src="images/logo-lockup.png" alt="Chetak Maxx Building Solutions" class="site-logo site-logo--footer block h-9 w-auto max-w-[220px] object-contain object-left sm:h-10 sm:max-w-[260px]" width="260" height="80" decoding="async" />';
+    '<picture><source srcset="images/logo-lockup.webp" type="image/webp" />' +
+    '<img src="images/logo-lockup.png" alt="Chetak Maxx Building Solutions" class="site-logo site-logo--footer block h-9 w-auto max-w-[220px] object-contain object-left sm:h-10 sm:max-w-[260px]" width="260" height="80" decoding="async" /></picture>';
 
   var headerHtml =
     '<header class="fixed left-0 right-0 top-0 z-50 glass-nav border-b border-white/10">' +
