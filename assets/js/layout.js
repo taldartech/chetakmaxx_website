@@ -122,7 +122,9 @@
     '<p class="mt-4 font-display text-2xl font-bold text-royal">ISO 9001:2015</p>' +
     '<p class="mt-1 text-sm text-slate-600">Quality management certified operations.</p></div></div>' +
     '<div class="mt-12 flex flex-col items-center justify-between gap-4 border-t border-slate-200 pt-8 text-center text-sm text-slate-500 sm:flex-row sm:text-left">' +
-    '<p>© <span id="y"></span> Chetak Maxx Building Solutions. All rights reserved.</p></div></div></footer>';
+    '<p>© <span id="y"></span> Chetak Maxx Building Solutions. All rights reserved.</p>' +
+    '<p class="sm:text-right">Developed &amp; Consulted by <a href="https://www.taldartechconsultancy.com/" target="_blank" rel="noopener noreferrer" class="font-semibold text-royal hover:text-brandcyan">Taldar Tech Consultancy</a></p>' +
+    '</div></div></footer>';
 
   function injectChrome() {
     var h = document.getElementById('site-header');
