@@ -105,7 +105,7 @@
     '<div><a href="index.html" class="group inline-flex">' +
     logoFooter +
     '</a>' +
-    '<p class="mt-5 text-sm text-slate-600">Premium tile adhesives and construction chemicals for professionals who demand reliability.</p></div>' +
+    '<p class="mt-5 text-sm text-slate-600">Premium tile adhesive and construction chemicals manufactured by <strong>Chetak paints</strong></p></div>' +
     '<div><p class="font-display text-sm font-bold uppercase tracking-wider text-royal">Quick Links</p>' +
     '<ul class="mt-4 space-y-2 text-sm">' +
     '<li><a href="index.html" class="text-slate-600 hover:text-brandcyan">Home</a></li>' +
